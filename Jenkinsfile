@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Get src code') {
             steps {
-                git 'https://github.com/SanjayAdwani/SeleniumTest.git'
+                git 'https://github.com/SanjayAdwani/SeleniumTesting.git'
                 echo 'Hello World'
             }
         }
