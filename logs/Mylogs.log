@@ -1,0 +1,221 @@
+[INFO ] 2024-03-01 14:49:41.822 [main] AddToCartTest - Choosing browser
+[INFO ] 2024-03-01 14:49:45.069 [main] AddToCartTest - Starting Add to cart process
+[INFO ] 2024-03-01 14:49:50.683 [main] AddToCartTest - Add to cart process is  completed
+[INFO ] 2024-03-01 14:50:06.006 [main] CheckAppliciacnesOption - Choosing browser
+[INFO ] 2024-03-01 14:50:09.256 [main] CheckAppliciacnesOption - Starting the process of checking applicanes options
+[INFO ] 2024-03-01 14:50:12.674 [main] CheckAppliciacnesOption - Checking applicanes option process is completed
+[INFO ] 2024-03-01 14:51:12.625 [main] CheckBuyNowOption - Choosing the browser
+[INFO ] 2024-03-01 14:51:15.421 [main] CheckBuyNowOption - Starting the process of checking the option buy now
+[INFO ] 2024-03-01 14:51:20.980 [main] CheckBuyNowOption - Checking buy now process is completed
+[INFO ] 2024-03-01 15:58:17.288 [main] ProductSearch - Choosing the browser
+[ERROR] 2024-03-01 15:58:22.627 [main] ProductSearch - Checking the product search
+[INFO ] 2024-03-01 15:58:25.888 [main] ProductSearch - Product search process is completed
+[INFO ] 2024-03-02 23:05:29.129 [main] CheckAppliciacnesOption - Choosing browser
+[INFO ] 2024-03-02 23:05:35.804 [main] CheckAppliciacnesOption - Starting the process of checking applicanes options
+[INFO ] 2024-03-02 23:05:39.833 [main] CheckAppliciacnesOption - Checking applicanes option process is completed
+[INFO ] 2024-03-02 23:06:26.581 [main] CheckAppliciacnesOption - Choosing browser
+[INFO ] 2024-03-03 17:29:24.354 [main] CheckAppliciacnesOption - Choosing browser
+[INFO ] 2024-03-03 17:30:07.428 [main] CheckBecomeSellerOption - Choosing browser
+[INFO ] 2024-03-03 17:30:40.942 [main] CheckDiscountOption - Choosing the browser
+[INFO ] 2024-03-03 17:31:23.547 [main] CheckDiscountOption - Choosing the browser
+[INFO ] 2024-03-03 17:31:29.528 [main] CheckDiscountOption - Checking the discount option filter for watch
+[INFO ] 2024-03-03 17:31:35.760 [main] CheckDiscountOption - Discount option process is completed
+[INFO ] 2024-03-03 17:31:58.283 [main] CheckBuyNowOption - Choosing the browser
+[INFO ] 2024-03-03 17:32:00.420 [main] CheckBuyNowOption - Starting the process of checking the option buy now
+[INFO ] 2024-03-03 17:32:27.010 [main] CheckBuyNowOption - Choosing the browser
+[INFO ] 2024-03-03 17:32:30.554 [main] CheckBuyNowOption - Starting the process of checking the option buy now
+[INFO ] 2024-03-03 17:32:38.900 [main] CheckBuyNowOption - Checking buy now process is completed
+[INFO ] 2024-03-03 17:34:20.850 [main] CheckBuyNowOption - Choosing the browser
+[INFO ] 2024-03-03 17:34:49.831 [main] CheckDropdownPriceFilterInWatch - Choosing thr browser
+[INFO ] 2024-03-03 17:35:20.594 [main] CheckFilterUsingCheckboxWatch - Choosing the browser
+[INFO ] 2024-03-03 17:35:46.419 [main] CheckMoreOptionNavigiation - Choosing the browser
+[INFO ] 2024-03-03 17:36:37.499 [main] CheckTermOfUseOption - Choosing the browswer
+[INFO ] 2024-03-03 17:37:04.124 [main] InvalidLoginCreditional - Choosing the browser
+[INFO ] 2024-03-03 17:37:28.574 [main] OpenAddToCartOption - Choosing the browser
+[INFO ] 2024-03-03 17:37:50.958 [main] OpenElectronicOption - Choosing the browser
+[INFO ] 2024-03-03 17:38:14.938 [main] ProductSearch - Choosing the browser
+[INFO ] 2024-03-03 17:38:41.206 [main] ValidLoginCreditional - Choosing the broswer
+[INFO ] 2024-03-03 17:41:20.756 [main] AddToCartTest - Choosing browser
+[INFO ] 2024-03-03 17:41:26.894 [main] AddToCartTest - Starting Add to cart process
+[INFO ] 2024-03-03 17:41:57.019 [main] AddToCartTest - Choosing browser
+[INFO ] 2024-03-03 17:42:02.011 [main] AddToCartTest - Starting Add to cart process
+[INFO ] 2024-03-03 17:42:30.025 [main] AddToCartTest - Choosing browser
+[INFO ] 2024-03-03 17:42:32.999 [main] AddToCartTest - Starting Add to cart process
+[INFO ] 2024-03-03 17:42:38.977 [main] AddToCartTest - Add to cart process is  completed
+[INFO ] 2024-03-03 17:43:50.565 [main] AddToCartTest - Choosing browser
+[INFO ] 2024-03-03 17:43:53.614 [main] AddToCartTest - Starting Add to cart process
+[INFO ] 2024-03-03 17:43:59.712 [main] AddToCartTest - Add to cart process is  completed
+[INFO ] 2024-03-04 11:21:38.399 [main] AddToCartTest - Choosing browser
+[INFO ] 2024-03-04 11:21:47.002 [main] AddToCartTest - Starting Add to cart process
+[INFO ] 2024-03-04 11:22:15.136 [main] AddToCartTest - Choosing browser
+[INFO ] 2024-03-04 11:22:17.999 [main] AddToCartTest - Starting Add to cart process
+[INFO ] 2024-03-04 11:22:24.282 [main] AddToCartTest - Add to cart process is  completed
+[INFO ] 2024-03-04 11:22:38.399 [main] AddToCartTest - Choosing browser
+[INFO ] 2024-03-04 11:22:41.508 [main] AddToCartTest - Starting Add to cart process
+[INFO ] 2024-03-04 11:22:48.057 [main] AddToCartTest - Add to cart process is  completed
+[INFO ] 2024-03-04 12:07:08.645 [main] CheckAppliciacnesOption - Choosing browser
+[INFO ] 2024-03-04 12:07:17.521 [main] CheckAppliciacnesOption - Starting the process of checking applicanes options
+[INFO ] 2024-03-04 12:07:21.428 [main] CheckAppliciacnesOption - Checking applicanes option process is completed
+[INFO ] 2024-03-04 12:08:40.199 [main] CheckBuyNowOption - Choosing the browser
+[INFO ] 2024-03-04 12:08:43.457 [main] CheckBuyNowOption - Starting the process of checking the option buy now
+[INFO ] 2024-03-04 12:08:49.566 [main] CheckBuyNowOption - Checking buy now process is completed
+[INFO ] 2024-03-04 12:09:16.432 [main] CheckAppliciacnesOption - Choosing browser
+[INFO ] 2024-03-04 12:09:22.272 [main] CheckAppliciacnesOption - Starting the process of checking applicanes options
+[INFO ] 2024-03-04 12:09:24.582 [main] CheckAppliciacnesOption - Checking applicanes option process is completed
+[INFO ] 2024-03-04 12:09:37.266 [main] CheckAppliciacnesOption - Choosing browser
+[INFO ] 2024-03-04 12:09:41.474 [main] CheckAppliciacnesOption - Starting the process of checking applicanes options
+[INFO ] 2024-03-04 12:09:43.815 [main] CheckAppliciacnesOption - Checking applicanes option process is completed
+[INFO ] 2024-03-04 12:10:13.967 [main] CheckAppliciacnesOption - Choosing browser
+[INFO ] 2024-03-04 12:10:19.023 [main] CheckAppliciacnesOption - Starting the process of checking applicanes options
+[INFO ] 2024-03-04 12:10:21.653 [main] CheckAppliciacnesOption - Checking applicanes option process is completed
+[INFO ] 2024-03-04 12:11:04.198 [main] CheckAppliciacnesOption - Choosing browser
+[INFO ] 2024-03-04 12:11:08.896 [main] CheckAppliciacnesOption - Starting the process of checking applicanes options
+[INFO ] 2024-03-04 12:11:11.514 [main] CheckAppliciacnesOption - Checking applicanes option process is completed
+[INFO ] 2024-03-04 12:15:12.002 [main] CheckAppliciacnesOption - Choosing browser
+[INFO ] 2024-03-04 12:15:17.517 [main] CheckAppliciacnesOption - Starting the process of checking applicanes options
+[INFO ] 2024-03-04 12:15:20.131 [main] CheckAppliciacnesOption - Checking applicanes option process is completed
+[INFO ] 2024-03-04 12:36:42.017 [main] CheckAppliciacnesOption - Choosing browser
+[INFO ] 2024-03-04 12:36:49.861 [main] CheckAppliciacnesOption - Starting the process of checking applicanes options
+[INFO ] 2024-03-04 12:36:52.434 [main] CheckAppliciacnesOption - Checking applicanes option process is completed
+[INFO ] 2024-03-04 12:37:07.683 [main] AddToCartTest - Choosing browser
+[INFO ] 2024-03-04 12:37:11.971 [main] AddToCartTest - Starting Add to cart process
+[ERROR] 2024-03-04 12:37:16.987 [main] AddToCartTest - Failed the process because of error
+[INFO ] 2024-03-04 12:37:43.812 [main] AddToCartTest - Choosing browser
+[INFO ] 2024-03-04 12:37:48.004 [main] AddToCartTest - Starting Add to cart process
+[ERROR] 2024-03-04 12:37:53.137 [main] AddToCartTest - Failed the process because of error
+[INFO ] 2024-03-04 12:41:18.774 [main] AddToCartTest - Choosing browser
+[INFO ] 2024-03-04 12:41:23.318 [main] AddToCartTest - Starting Add to cart process
+[INFO ] 2024-03-04 12:42:16.939 [main] AddToCartTest - Choosing browser
+[INFO ] 2024-03-04 12:42:21.913 [main] AddToCartTest - Starting Add to cart process
+[ERROR] 2024-03-04 12:42:26.767 [main] AddToCartTest - Failed the process because of error
+[INFO ] 2024-03-04 12:42:59.967 [main] AddToCartTest - Choosing browser
+[INFO ] 2024-03-04 12:43:04.088 [main] AddToCartTest - Starting Add to cart process
+[ERROR] 2024-03-04 12:43:08.794 [main] AddToCartTest - Failed the process because of error
+[INFO ] 2024-03-04 12:43:50.581 [main] AddToCartTest - Choosing browser
+[INFO ] 2024-03-04 12:43:54.823 [main] AddToCartTest - Starting Add to cart process
+[ERROR] 2024-03-04 12:43:59.714 [main] AddToCartTest - Failed the process because of error
+[INFO ] 2024-03-04 12:44:40.342 [main] AddToCartTest - Choosing browser
+[INFO ] 2024-03-04 12:44:44.793 [main] AddToCartTest - Starting Add to cart process
+[ERROR] 2024-03-04 12:44:49.421 [main] AddToCartTest - Failed the process because of error
+[INFO ] 2024-03-04 12:45:51.096 [main] CheckAppliciacnesOption - Choosing browser
+[INFO ] 2024-03-04 12:45:55.374 [main] CheckAppliciacnesOption - Starting the process of checking applicanes options
+[INFO ] 2024-03-04 12:45:57.951 [main] CheckAppliciacnesOption - Checking applicanes option process is completed
+[INFO ] 2024-03-04 12:46:11.571 [main] CheckBecomeSellerOption - Choosing browser
+[INFO ] 2024-03-04 12:46:15.779 [main] CheckBecomeSellerOption - Starting the process of checking the seller option
+[INFO ] 2024-03-04 12:46:21.510 [main] CheckBecomeSellerOption - Checking seller option button is completed
+[INFO ] 2024-03-04 12:51:14.504 [main] CheckAppliciacnesOption - Choosing browser
+[INFO ] 2024-03-04 12:51:18.750 [main] CheckAppliciacnesOption - Starting the process of checking applicanes options
+[INFO ] 2024-03-04 12:51:21.294 [main] CheckAppliciacnesOption - Checking applicanes option process is completed
+[INFO ] 2024-03-04 12:51:32.852 [main] CheckAppliciacnesOption - Choosing browser
+[INFO ] 2024-03-04 12:51:37.073 [main] CheckAppliciacnesOption - Starting the process of checking applicanes options
+[INFO ] 2024-03-04 12:51:39.629 [main] CheckAppliciacnesOption - Checking applicanes option process is completed
+[INFO ] 2024-03-04 12:51:50.521 [main] CheckBecomeSellerOption - Choosing browser
+[INFO ] 2024-03-04 12:51:55.122 [main] CheckBecomeSellerOption - Starting the process of checking the seller option
+[INFO ] 2024-03-04 12:52:00.400 [main] CheckBecomeSellerOption - Checking seller option button is completed
+[INFO ] 2024-03-04 12:52:12.089 [main] CheckBecomeSellerOption - Choosing browser
+[INFO ] 2024-03-04 12:52:16.434 [main] CheckBecomeSellerOption - Starting the process of checking the seller option
+[INFO ] 2024-03-04 12:52:21.679 [main] CheckBecomeSellerOption - Checking seller option button is completed
+[INFO ] 2024-03-04 12:52:33.993 [main] CheckBuyNowOption - Choosing the browser
+[INFO ] 2024-03-04 12:52:38.547 [main] CheckBuyNowOption - Starting the process of checking the option buy now
+[ERROR] 2024-03-04 12:52:43.334 [main] CheckBuyNowOption - Checking the buy now option is failed because of some error
+[INFO ] 2024-03-04 12:53:04.139 [main] CheckBuyNowOption - Choosing the browser
+[INFO ] 2024-03-04 12:53:08.497 [main] CheckBuyNowOption - Starting the process of checking the option buy now
+[ERROR] 2024-03-04 12:53:13.639 [main] CheckBuyNowOption - Checking the buy now option is failed because of some error
+[INFO ] 2024-03-04 12:53:30.388 [main] CheckBuyNowOption - Choosing the browser
+[INFO ] 2024-03-04 12:53:34.644 [main] CheckBuyNowOption - Starting the process of checking the option buy now
+[ERROR] 2024-03-04 12:53:41.105 [main] CheckBuyNowOption - Checking the buy now option is failed because of some error
+[INFO ] 2024-03-04 12:54:15.563 [main] CheckDiscountOption - Choosing the browser
+[INFO ] 2024-03-04 12:54:19.797 [main] CheckDiscountOption - Checking the discount option filter for watch
+[INFO ] 2024-03-04 12:54:44.885 [main] CheckDiscountOption - Choosing the browser
+[INFO ] 2024-03-04 12:54:49.413 [main] CheckDiscountOption - Checking the discount option filter for watch
+[INFO ] 2024-03-04 12:55:08.346 [main] CheckDiscountOption - Choosing the browser
+[INFO ] 2024-03-04 12:55:12.480 [main] CheckDiscountOption - Checking the discount option filter for watch
+[INFO ] 2024-03-04 12:59:07.269 [main] CheckBuyNowOption - Choosing the browser
+[INFO ] 2024-03-04 12:59:11.922 [main] CheckBuyNowOption - Starting the process of checking the option buy now
+[ERROR] 2024-03-04 12:59:17.416 [main] CheckBuyNowOption - Checking the buy now option is failed because of some error
+[INFO ] 2024-03-04 12:59:49.334 [main] CheckDiscountOption - Choosing the browser
+[INFO ] 2024-03-04 12:59:53.597 [main] CheckDiscountOption - Checking the discount option filter for watch
+[INFO ] 2024-03-04 13:01:41.736 [main] CheckDiscountOption - Choosing the browser
+[INFO ] 2024-03-04 13:01:45.980 [main] CheckDiscountOption - Checking the discount option filter for watch
+[INFO ] 2024-03-04 13:03:37.744 [main] CheckDiscountOption - Choosing the browser
+[INFO ] 2024-03-04 13:03:41.875 [main] CheckDiscountOption - Checking the discount option filter for watch
+[INFO ] 2024-03-04 13:04:27.078 [main] CheckDropdownPriceFilterInWatch - Choosing thr browser
+[INFO ] 2024-03-04 13:04:31.240 [main] CheckDropdownPriceFilterInWatch - Checking the price dropdown filter for watch
+[INFO ] 2024-03-04 13:04:49.717 [main] CheckDropdownPriceFilterInWatch - Choosing thr browser
+[INFO ] 2024-03-04 13:04:54.091 [main] CheckDropdownPriceFilterInWatch - Checking the price dropdown filter for watch
+[INFO ] 2024-03-04 13:04:57.879 [main] CheckDropdownPriceFilterInWatch - Dropdown price filter option is completed
+[INFO ] 2024-03-04 13:05:09.699 [main] CheckDropdownPriceFilterInWatch - Choosing thr browser
+[INFO ] 2024-03-04 13:05:14.139 [main] CheckDropdownPriceFilterInWatch - Checking the price dropdown filter for watch
+[INFO ] 2024-03-04 13:05:17.892 [main] CheckDropdownPriceFilterInWatch - Dropdown price filter option is completed
+[INFO ] 2024-03-04 13:05:32.550 [main] CheckFilterUsingCheckboxWatch - Choosing the browser
+[INFO ] 2024-03-04 13:05:36.640 [main] CheckFilterUsingCheckboxWatch - Changing the brand of watches
+[INFO ] 2024-03-04 13:05:40.243 [main] CheckFilterUsingCheckboxWatch - Chaning the brand watch process is completed
+[INFO ] 2024-03-04 13:05:55.080 [main] CheckMoreOptionNavigiation - Choosing the browser
+[INFO ] 2024-03-04 13:05:59.334 [main] CheckMoreOptionNavigiation - Checking the more option and click the notification prefrences
+[INFO ] 2024-03-04 13:06:13.382 [main] CheckMoreOptionNavigiation - Choosing the browser
+[INFO ] 2024-03-04 13:06:17.681 [main] CheckMoreOptionNavigiation - Checking the more option and click the notification prefrences
+[INFO ] 2024-03-04 13:07:18.367 [main] CheckTermOfUseOption - Choosing the browswer
+[INFO ] 2024-03-04 13:07:22.753 [main] CheckTermOfUseOption - Checking the term of use option
+[ERROR] 2024-03-04 13:07:27.083 [main] CheckTermOfUseOption - Term of use process is not completed because of errors
+[INFO ] 2024-03-04 13:07:49.193 [main] CheckTermOfUseOption - Choosing the browswer
+[INFO ] 2024-03-04 13:07:53.456 [main] CheckTermOfUseOption - Checking the term of use option
+[ERROR] 2024-03-04 13:07:57.940 [main] CheckTermOfUseOption - Term of use process is not completed because of errors
+[INFO ] 2024-03-04 13:08:28.427 [main] InvalidLoginCreditional - Choosing the browser
+[INFO ] 2024-03-04 13:08:32.570 [main] InvalidLoginCreditional - Checking the login using invalid credtionals
+[INFO ] 2024-03-04 13:08:37.029 [main] InvalidLoginCreditional - Invalid credtional login process is completed
+[INFO ] 2024-03-04 13:08:52.027 [main] OpenAddToCartOption - Choosing the browser
+[INFO ] 2024-03-04 13:08:56.174 [main] OpenAddToCartOption - Checking the option of cart from navigiation
+[INFO ] 2024-03-04 13:08:57.373 [main] OpenAddToCartOption - Open Add to cart from nav is completed
+[INFO ] 2024-03-04 13:09:08.021 [main] OpenElectronicOption - Choosing the browser
+[INFO ] 2024-03-04 13:09:12.450 [main] OpenElectronicOption - Checking the electronic option form nav
+[INFO ] 2024-03-04 13:09:32.109 [main] OpenElectronicOption - Choosing the browser
+[INFO ] 2024-03-04 13:09:36.561 [main] OpenElectronicOption - Checking the electronic option form nav
+[INFO ] 2024-03-04 13:10:07.901 [main] ProductSearch - Choosing the browser
+[ERROR] 2024-03-04 13:10:12.014 [main] ProductSearch - Checking the product search
+[ERROR] 2024-03-04 13:10:12.856 [main] ProductSearch - Product search process is not completed
+[INFO ] 2024-03-04 13:10:26.025 [main] ProductSearch - Choosing the browser
+[ERROR] 2024-03-04 13:10:30.404 [main] ProductSearch - Checking the product search
+[ERROR] 2024-03-04 13:10:31.217 [main] ProductSearch - Product search process is not completed
+[INFO ] 2024-03-04 13:10:57.923 [main] ValidLoginCreditional - Choosing the broswer
+[INFO ] 2024-03-04 13:11:02.475 [main] ValidLoginCreditional - Staring the proces of login using valid credtional
+[INFO ] 2024-03-04 13:11:07.217 [main] ValidLoginCreditional - Valid credtional login is completed
+[INFO ] 2024-03-04 13:30:40.812 [main] AddToCartTest - Choosing browser
+[INFO ] 2024-03-04 13:30:53.770 [main] AddToCartTest - Starting Add to cart process
+[INFO ] 2024-03-04 13:30:59.607 [main] AddToCartTest - Add to cart process is  completed
+[INFO ] 2024-03-04 13:31:33.271 [main] CheckAppliciacnesOption - Choosing browser
+[INFO ] 2024-03-04 13:31:36.168 [main] CheckAppliciacnesOption - Starting the process of checking applicanes options
+[INFO ] 2024-03-04 13:31:39.207 [main] CheckAppliciacnesOption - Checking applicanes option process is completed
+[INFO ] 2024-03-04 13:31:57.037 [main] CheckBecomeSellerOption - Choosing browser
+[INFO ] 2024-03-04 13:31:59.705 [main] CheckBecomeSellerOption - Starting the process of checking the seller option
+[INFO ] 2024-03-04 13:32:17.982 [main] CheckBecomeSellerOption - Choosing browser
+[INFO ] 2024-03-04 13:32:20.584 [main] CheckBecomeSellerOption - Starting the process of checking the seller option
+[INFO ] 2024-03-04 13:33:33.855 [main] CheckBecomeSellerOption - Choosing browser
+[INFO ] 2024-03-04 13:33:37.962 [main] CheckBecomeSellerOption - Starting the process of checking the seller option
+[INFO ] 2024-03-04 13:33:44.243 [main] CheckBecomeSellerOption - Checking seller option button is completed
+[INFO ] 2024-03-04 13:34:13.003 [main] CheckBuyNowOption - Choosing the browser
+[INFO ] 2024-03-04 13:34:16.366 [main] CheckBuyNowOption - Starting the process of checking the option buy now
+[INFO ] 2024-03-04 13:34:22.429 [main] CheckBuyNowOption - Checking buy now process is completed
+[INFO ] 2024-03-04 13:34:38.179 [main] CheckBecomeSellerOption - Choosing browser
+[INFO ] 2024-03-04 13:34:41.827 [main] CheckBecomeSellerOption - Starting the process of checking the seller option
+[INFO ] 2024-03-04 13:36:45.921 [main] CheckBecomeSellerOption - Choosing browser
+[INFO ] 2024-03-04 13:36:48.996 [main] CheckBecomeSellerOption - Starting the process of checking the seller option
+[INFO ] 2024-03-04 13:37:09.961 [main] CheckBuyNowOption - Choosing the browser
+[INFO ] 2024-03-04 13:37:13.313 [main] CheckBuyNowOption - Starting the process of checking the option buy now
+[INFO ] 2024-03-04 13:37:19.502 [main] CheckBuyNowOption - Checking buy now process is completed
+[INFO ] 2024-03-04 13:37:30.661 [main] CheckDiscountOption - Choosing the browser
+[INFO ] 2024-03-04 13:37:33.662 [main] CheckDiscountOption - Checking the discount option filter for watch
+[INFO ] 2024-03-04 13:37:36.372 [main] CheckDiscountOption - Discount option process is completed
+[INFO ] 2024-03-04 14:19:20.732 [main] CheckDropdownPriceFilterInWatch - Choosing thr browser
+[INFO ] 2024-03-04 14:19:27.057 [main] CheckDropdownPriceFilterInWatch - Checking the price dropdown filter for watch
+[INFO ] 2024-03-04 14:19:31.618 [main] CheckDropdownPriceFilterInWatch - Dropdown price filter option is completed
+[INFO ] 2024-03-04 14:19:47.465 [main] CheckMoreOptionNavigiation - Choosing the browser
+[INFO ] 2024-03-04 14:19:51.334 [main] CheckMoreOptionNavigiation - Checking the more option and click the notification prefrences
+[INFO ] 2024-03-04 14:20:07.352 [main] CheckMoreOptionNavigiation - Choosing the browser
+[INFO ] 2024-03-04 14:20:10.828 [main] CheckMoreOptionNavigiation - Checking the more option and click the notification prefrences
+[INFO ] 2024-03-04 14:20:38.090 [main] CheckMoreOptionNavigiation - Choosing the browser
+[INFO ] 2024-03-04 14:20:40.750 [main] CheckMoreOptionNavigiation - Checking the more option and click the notification prefrences
+[INFO ] 2024-03-04 14:21:17.781 [main] CheckMoreOptionNavigiation - Choosing the browser
+[INFO ] 2024-03-04 14:21:21.282 [main] CheckMoreOptionNavigiation - Checking the more option and click the notification prefrences
+[INFO ] 2024-03-04 14:22:01.736 [main] CheckTermOfUseOption - Choosing the browswer
+[INFO ] 2024-03-04 14:22:04.760 [main] CheckTermOfUseOption - Checking the term of use option
+[ERROR] 2024-03-04 14:22:08.419 [main] CheckTermOfUseOption - Term of use process is not completed because of errors
