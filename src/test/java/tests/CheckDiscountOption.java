@@ -32,7 +32,7 @@ import pages.CheckBuyNowOptionPage;
 import pages.CheckDiscountOptionPage;
 
 public class CheckDiscountOption {
-
+	//Declare variables
 	WebDriver driver=null;
 	Read data;
 	String discountvalue;
@@ -41,28 +41,33 @@ public class CheckDiscountOption {
 	String projectpath;
 	String CurrentTitle = "Watch For Men- Buy Products Online at Best Price in India - All Categories | Flipkart.com";
 	CheckDiscountOptionPage discount;
+	//Passing class for logger
 	Logger logger= LogManager.getLogger(CheckDiscountOption.class);
 	@BeforeTest(groups = {"regression"},enabled = true)
 	public void setup() throws Exception {
-		XSSFWorkbook Workbook = new XSSFWorkbook("C:\\Users\\sanjayadwani\\eclipse-workspace\\SeleniumTesting\\Excel\\TestCasesExcel.xlsx");
+		//Giving dynamic path of project
+		projectpath= System.getProperty("user.dir");
+		//Reading excel file using sheetname
+		XSSFWorkbook Workbook = new XSSFWorkbook(projectpath+"/Excel/TestCasesExcel.xlsx");
 		XSSFSheet sheet = Workbook.getSheet("TestCases");
+		//Storing column value in variable
 		discountvalue=sheet.getRow(4).getCell(1).getStringCellValue();
 		data= new Read();
 		DiscountExtent = data.SetUp();
+		//Extent Report cases
 		DiscountTest = DiscountExtent.createTest("Discount option Test", "Checking the Discount filter for product option is working or not");
 		DiscountTest.log(Status.INFO, "Starting step of Discount Test");
-		//Get the path of the current project
-		projectpath= System.getProperty("user.dir");
 		logger.info("Choosing the browser");
 		String headless = data.headlessvalue();
+		//Comparing browsers
 		if(data.browser().toLowerCase().contains("chrome"))
 		{
 			System.setProperty("webdriver.chrome.driver", projectpath+"/Drivers/chromedriver.exe");
-			//Open the website
+			//Checking headless mode
 			if(headless.toLowerCase().contains("true")) {
-			ChromeOptions opt= new ChromeOptions();
-			opt.addArguments("--headless");
-			driver= new ChromeDriver(opt);
+				ChromeOptions opt= new ChromeOptions();
+				opt.addArguments("--headless");
+				driver= new ChromeDriver(opt);
 			}
 			else {
 				driver= new ChromeDriver();
@@ -73,9 +78,9 @@ public class CheckDiscountOption {
 			//Passing the path of edge driver
 			System.setProperty("webdriver.edge.driver", projectpath+"/Drivers/msedgedriver.exe");
 			if(headless.toLowerCase().contains("true")) {
-			EdgeOptions edgeopt = new EdgeOptions();
-			edgeopt.addArguments("--headless");
-			driver= new EdgeDriver(edgeopt);
+				EdgeOptions edgeopt = new EdgeOptions();
+				edgeopt.addArguments("--headless");
+				driver= new EdgeDriver(edgeopt);
 			}
 			else
 			{
@@ -89,27 +94,29 @@ public class CheckDiscountOption {
 				FirefoxOptions firefoxopt = new FirefoxOptions();
 				firefoxopt.addArguments("--headless");
 				driver= new FirefoxDriver(firefoxopt);
-				}
-				else
-				{
-					driver= new FirefoxDriver();
-				}
+			}
+			else
+			{
+				driver= new FirefoxDriver();
+			}
 		}
 		driver.navigate().to(data.link());
 	}
+	//Performing test cases
 	@Test(groups = {"regression"},enabled = true,priority = 1)
 	public void Checkdiscount() throws Exception {
 		if(discountvalue.toLowerCase().contains("yes")) {
-			
-		logger.info("Checking the discount option filter for watch");
-		discount =  new CheckDiscountOptionPage(driver);
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		discount.SearchProduct(data.SearchItem());
-		discount.SearchButton();
+
+			logger.info("Checking the discount option filter for watch");
+			discount =  new CheckDiscountOptionPage(driver);
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			discount.SearchProduct(data.SearchItem());
+			discount.SearchButton();
 		}
 		else{
-		System.out.println("Please change excel execution value");
+			logger.info("Please change execution value in excel");
+			DiscountTest.fail("Test case is not working because of excel execution value");
 		}
 
 	}
@@ -118,7 +125,7 @@ public class CheckDiscountOption {
 		discount.discoutopt();
 		discount.tick90();
 
-
+		//Checking webpage title
 		if(CurrentTitle.contains(driver.getTitle()))
 		{
 			DiscountTest.pass("Discount option test is completed");
@@ -130,18 +137,18 @@ public class CheckDiscountOption {
 			Files.copy(f, new File(projectpath+"/Screenshots/DiscountTest.jpg"));
 			logger.error("Discount option process is failed because of some error");
 		}
-
+		//Using Assertion
 		Assert.assertEquals(driver.getTitle(),CurrentTitle);
 
 
 		DiscountTest.info("Test completed successfully");
 
 	}
-
+	//Closing browser
 	@AfterTest(groups = {"regression"},enabled = true)
 	public void close() {
 		DiscountExtent.flush();
-	
+
 		driver.quit();
 	}
 

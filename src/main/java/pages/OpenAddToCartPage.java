@@ -19,8 +19,8 @@ public class OpenAddToCartPage {
 		driver.findElement(OpenCart).click();
 	}
 	
-	public void checktext() {
-		driver.findElement(checktext).isDisplayed();
-	}
+//	public void checktext() {
+//		driver.findElement(checktext).isDisplayed();
+//	}
 
 }

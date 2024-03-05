@@ -30,6 +30,7 @@ import Config.Read;
 import pages.ProductSearchpage;
 
 public class ProductSearch {
+	//Declare variables
 	WebDriver driver=null;
 	Read data;
 	ExtentTest ProSearchTest;
@@ -37,29 +38,34 @@ public class ProductSearch {
 	String projectpath;
 	String ProductSeaValue;
 	String CurrentTitle = "Watch For Men- Buy Products Online at Best Price in India - All Categories | Flipkart.com";
+	//Passing class for logger
 	Logger logger= LogManager.getLogger(ProductSearch.class);
 
 	@BeforeTest(groups = {"smoke","regression"},enabled = true)
 	public void setup() throws Exception {
-		XSSFWorkbook Workbook = new XSSFWorkbook("C:\\Users\\sanjayadwani\\eclipse-workspace\\SeleniumTesting\\Excel\\TestCasesExcel.xlsx");
+		//Giving dynamic path of project
+		projectpath= System.getProperty("user.dir");
+		//Reading excel file using sheetname
+		XSSFWorkbook Workbook = new XSSFWorkbook(projectpath+"/Excel/TestCasesExcel.xlsx");
 		XSSFSheet sheet = Workbook.getSheet("TestCases");
+		//Storing column value in variable
 		ProductSeaValue=sheet.getRow(14).getCell(1).getStringCellValue();
 		data= new Read();
 		ProSearchExtent = data.SetUp();
+		//Extent Report cases
 		ProSearchTest = ProSearchExtent.createTest("Product Search  Test", "Checking the Product search test");
 		ProSearchTest.log(Status.INFO, "Starting step of product search Scenario");
-		//Get the path of the current project
-		projectpath= System.getProperty("user.dir");
 		logger.info("Choosing the browser");
 		String headless = data.headlessvalue();
+		//Comparing browser
 		if(data.browser().toLowerCase().contains("chrome"))
 		{
 			System.setProperty("webdriver.chrome.driver", projectpath+"/Drivers/chromedriver.exe");
-			//Open the website
+			//Check the headless mode
 			if(headless.toLowerCase().contains("true")) {
-			ChromeOptions opt= new ChromeOptions();
-			opt.addArguments("--headless");
-			driver= new ChromeDriver(opt);
+				ChromeOptions opt= new ChromeOptions();
+				opt.addArguments("--headless");
+				driver= new ChromeDriver(opt);
 			}
 			else {
 				driver= new ChromeDriver();
@@ -70,9 +76,9 @@ public class ProductSearch {
 			//Passing the path of edge driver
 			System.setProperty("webdriver.edge.driver", projectpath+"/Drivers/msedgedriver.exe");
 			if(headless.toLowerCase().contains("true")) {
-			EdgeOptions edgeopt = new EdgeOptions();
-			edgeopt.addArguments("--headless");
-			driver= new EdgeDriver(edgeopt);
+				EdgeOptions edgeopt = new EdgeOptions();
+				edgeopt.addArguments("--headless");
+				driver= new EdgeDriver(edgeopt);
 			}
 			else
 			{
@@ -86,49 +92,50 @@ public class ProductSearch {
 				FirefoxOptions firefoxopt = new FirefoxOptions();
 				firefoxopt.addArguments("--headless");
 				driver= new FirefoxDriver(firefoxopt);
-				}
-				else
-				{
-					driver= new FirefoxDriver();
-				}
+			}
+			else
+			{
+				driver= new FirefoxDriver();
+			}
 		}
 		driver.navigate().to(data.link());
 	}
-
+	//Performing test cases
 	@Test(groups = {"smoke","regression"},enabled = true)
 	public void SearchProduct() throws Exception {
 		if(ProductSeaValue.toLowerCase().contains("yes")) {
-			
-        logger.error("Checking the product search");
-		ProductSearchpage product = new ProductSearchpage(driver);
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		product.SearchProduct(data.SearchItem());
-		product.SearchButton();
 
-		if(CurrentTitle.contains(driver.getTitle()))
-		{
-			ProSearchTest.pass("Product search  Test is completed");
-			logger.info("Product search process is completed");
-		}
-		else {
-			ProSearchTest.fail("Product Search  Test is not completed");
-			File f= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			Files.copy(f, new File(projectpath+"/Screenshots/ProSaerch.jpg"));
-			logger.error("Product search process is not completed");
-		}
+			logger.error("Checking the product search");
+			ProductSearchpage product = new ProductSearchpage(driver);
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			product.SearchProduct(data.SearchItem());
+			product.SearchButton();
+			//Checking webpage title
+			if(CurrentTitle.contains(driver.getTitle()))
+			{
+				ProSearchTest.pass("Product search  Test is completed");
+				logger.info("Product search process is completed");
+			}
+			else {
+				ProSearchTest.fail("Product Search  Test is not completed");
+				File f= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+				Files.copy(f, new File(projectpath+"/Screenshots/ProSaerch.jpg"));
+				logger.error("Product search process is not completed");
+			}
+			//Using Assertion
+			Assert.assertEquals(driver.getTitle(),CurrentTitle);
 
-		Assert.assertEquals(driver.getTitle(),CurrentTitle);
 
-
-		ProSearchTest.info("Test completed successfully");
+			ProSearchTest.info("Test completed successfully");
 		}
 		else
 		{
-			System.out.println("Please change execution value in excel");
+			logger.info("Please change execution value in excel");
+			ProSearchTest.fail("Test case is not working because of excel execution value");
 		}
 	}
-
+	//Closing browser
 	@AfterTest(groups = {"smoke","regression"},enabled = true)
 	public void close()
 	{

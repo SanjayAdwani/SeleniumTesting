@@ -31,6 +31,7 @@ import pages.CheckNavBackOptionAfterSearchProductPage;
 import pages.ProductSearchpage;
 
 public class CheckNavBackOptionAfterSearchProduct {
+	//Declare variables
 	WebDriver driver=null;
 	Read data;
 	String NavBackHomeValue;
@@ -38,28 +39,34 @@ public class CheckNavBackOptionAfterSearchProduct {
 	ExtentReports HomeOptExtent;
 	String projectpath;
 	String CurrentTitle = "Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!";
+	//Passing class for logger
 	Logger logger= LogManager.getLogger(CheckNavBackOptionAfterSearchProduct.class);
 
 	@BeforeTest(groups = {"smoke","regression"},enabled = true)
 	public void setup() throws Exception {
-		XSSFWorkbook Workbook = new XSSFWorkbook("C:\\Users\\sanjayadwani\\eclipse-workspace\\SeleniumTesting\\Excel\\TestCasesExcel.xlsx");
+		//Giving dynamic path of project
+		projectpath= System.getProperty("user.dir");
+		//Reading excel file using sheetname
+		XSSFWorkbook Workbook = new XSSFWorkbook(projectpath+"/Excel/TestCasesExcel.xlsx");
 		XSSFSheet sheet = Workbook.getSheet("TestCases");
+		//Storing column value in variable
 		NavBackHomeValue=sheet.getRow(9).getCell(1).getStringCellValue();
 		data= new Read();
 		HomeOptExtent = data.SetUp();
+		//Extent Report cases
 		HomeOptTest = HomeOptExtent.createTest("Home option Test", "Checking the Home option button is working or not");
 		HomeOptTest.log(Status.INFO, "Starting step of Home option Test");
-		//Get the path of the current project
-		String projectpath= System.getProperty("user.dir");
 		String headless = data.headlessvalue();
+		logger.info("Choosing the browser");
+		//Comparing browsers
 		if(data.browser().toLowerCase().contains("chrome"))
 		{
 			System.setProperty("webdriver.chrome.driver", projectpath+"/Drivers/chromedriver.exe");
-			//Open the website
+			//Checking headless mode
 			if(headless.toLowerCase().contains("true")) {
-			ChromeOptions opt= new ChromeOptions();
-			opt.addArguments("--headless");
-			driver= new ChromeDriver(opt);
+				ChromeOptions opt= new ChromeOptions();
+				opt.addArguments("--headless");
+				driver= new ChromeDriver(opt);
 			}
 			else {
 				driver= new ChromeDriver();
@@ -70,9 +77,9 @@ public class CheckNavBackOptionAfterSearchProduct {
 			//Passing the path of edge driver
 			System.setProperty("webdriver.edge.driver", projectpath+"/Drivers/msedgedriver.exe");
 			if(headless.toLowerCase().contains("true")) {
-			EdgeOptions edgeopt = new EdgeOptions();
-			edgeopt.addArguments("--headless");
-			driver= new EdgeDriver(edgeopt);
+				EdgeOptions edgeopt = new EdgeOptions();
+				edgeopt.addArguments("--headless");
+				driver= new EdgeDriver(edgeopt);
 			}
 			else
 			{
@@ -86,50 +93,53 @@ public class CheckNavBackOptionAfterSearchProduct {
 				FirefoxOptions firefoxopt = new FirefoxOptions();
 				firefoxopt.addArguments("--headless");
 				driver= new FirefoxDriver(firefoxopt);
-				}
-				else
-				{
-					driver= new FirefoxDriver();
-				}
+			}
+			else
+			{
+				driver= new FirefoxDriver();
+			}
 		}
 		driver.navigate().to(data.link());
 	}
-
+	//Performing test cases
 	@Test(groups = {"smoke","regression"},enabled = true)
 	public void SearchProduct() throws Exception {
-        if(NavBackHomeValue.toLowerCase().contains("yes")) {
-        	
-		CheckNavBackOptionAfterSearchProductPage backOption= new CheckNavBackOptionAfterSearchProductPage(driver);
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		backOption.SearchProduct(data.SearchItem());
-		backOption.SearchButton();
-		backOption.BackHome();
-		Thread.sleep(2000);
+		if(NavBackHomeValue.toLowerCase().contains("yes")) {
 
-		if(CurrentTitle.contains(driver.getTitle()))
+			CheckNavBackOptionAfterSearchProductPage backOption= new CheckNavBackOptionAfterSearchProductPage(driver);
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			backOption.SearchProduct(data.SearchItem());
+			backOption.SearchButton();
+			backOption.BackHome();
+			Thread.sleep(2000);
+			//Checking webpage title
+			if(CurrentTitle.contains(driver.getTitle()))
+			{
+				HomeOptTest.pass("Home option test is completed");
+				logger.info("Nav  Back Home test is completed ");
+			}
+			else {
+				HomeOptTest.fail("Home option test is not completed");
+				logger.error("Nav Back Home test is not completed because of some error");
+				File f= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+				Files.copy(f, new File(projectpath+"/Screenshots/HomeTest.jpg"));
+			}
+
+			Assert.assertEquals(driver.getTitle(),CurrentTitle);
+
+
+			HomeOptTest.info("Test completed successfully");
+		}
+		else
 		{
-			HomeOptTest.pass("Home option test is completed");
+			logger.info("Please change execution value in excel");
+			HomeOptTest.fail("Test case is not working because of excel execution value");
 		}
-		else {
-			HomeOptTest.fail("Home option test is not completed");
-			File f= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			Files.copy(f, new File(projectpath+"/Screenshots/HomeTest.jpg"));
-		}
-
-		Assert.assertEquals(driver.getTitle(),CurrentTitle);
-
-
-		HomeOptTest.info("Test completed successfully");
-        }
-        else
-        {
-        	System.out.println("Please change execution value in excel");
-        }
 
 
 	}
-
+	//Closing browser
 	@AfterTest(groups = {"smoke","regression"},enabled = true)
 	public void close()
 	{

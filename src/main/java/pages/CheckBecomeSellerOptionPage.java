@@ -10,7 +10,7 @@ public class CheckBecomeSellerOptionPage {
 	
 	WebDriver driver=null;
 	
-	private By Open_SellerOption  = By.xpath("//*[@id=\"container\"]/div/div[1]/div/div/div/div/div[1]/div/div[1]/div/div[1]/div[1]/header/div[2]/div[4]/div/a[2]");
+	private By Open_SellerOption  = By.xpath("//*[@id=\"container\"]/div/div[1]/div/div/div/div/div[1]/div/div[1]/div/div[1]/div[1]/header/div[2]/div[4]/div/a[1]");
 	private By Open_SellerLogin = By.xpath("//*[@id=\"app\"]/div/div[2]/div/div/div[2]/button[1]");
 	
 	public CheckBecomeSellerOptionPage(WebDriver driver) {

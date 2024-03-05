@@ -34,6 +34,7 @@ import Config.Read;
 import pages.AddToCartPage;
 
 public class AddToCartTest {
+	//Declare variables
 	WebDriver driver=null;
 	Read data;
 	String execution;
@@ -43,28 +44,33 @@ public class AddToCartTest {
 	String projectpath;
 	String Currenttitle="Shopping Cart | Flipkart.com";
 	String Currenturl = "https://www.flipkart.com/";
+	//Passing class for logger
 	Logger logger= LogManager.getLogger(AddToCartTest.class);
 	@BeforeTest(groups = {"sanity"})
 	public void setup() throws Exception {
-		XSSFWorkbook Workbook = new XSSFWorkbook("C:\\Users\\sanjayadwani\\eclipse-workspace\\SeleniumTesting\\Excel\\TestCasesExcel.xlsx");
+		//Giving dynamic path of project
+		projectpath= System.getProperty("user.dir");
+		//Reading excel file using sheetname
+		XSSFWorkbook Workbook = new XSSFWorkbook(projectpath+"/Excel/TestCasesExcel.xlsx");
 		XSSFSheet Sheet = Workbook.getSheet("TestCases");
+		//Storing column value in variable
 		execution= Sheet.getRow(1).getCell(1).getStringCellValue();
 		data= new Read();
 		extent = data.SetUp();
+		//Extent Report cases
 		extenttest = extent.createTest("Add To Cart Test", "Check the Add to cart functionality");
 		extenttest.log(Status.INFO, "Starting step of Add to cart test");
-		//Get the path of the current project
-		projectpath= System.getProperty("user.dir");
 		logger.info("Choosing browser");
 		String headless = data.headlessvalue();
+		//Comparing browsers
 		if(data.browser().toLowerCase().contains("chrome"))
 		{
 			System.setProperty("webdriver.chrome.driver", projectpath+"/Drivers/chromedriver.exe");
-			//Open the website
+			//Checking headless mode
 			if(headless.toLowerCase().contains("true")) {
-			ChromeOptions opt= new ChromeOptions();
-			opt.addArguments("--headless");
-			driver= new ChromeDriver(opt);
+				ChromeOptions opt= new ChromeOptions();
+				opt.addArguments("--headless");
+				driver= new ChromeDriver(opt);
 			}
 			else {
 				driver= new ChromeDriver();
@@ -75,9 +81,9 @@ public class AddToCartTest {
 			//Passing the path of edge driver
 			System.setProperty("webdriver.edge.driver", projectpath+"/Drivers/msedgedriver.exe");
 			if(headless.toLowerCase().contains("true")) {
-			EdgeOptions edgeopt = new EdgeOptions();
-			edgeopt.addArguments("--headless");
-			driver= new EdgeDriver(edgeopt);
+				EdgeOptions edgeopt = new EdgeOptions();
+				edgeopt.addArguments("--headless");
+				driver= new EdgeDriver(edgeopt);
 			}
 			else
 			{
@@ -91,37 +97,38 @@ public class AddToCartTest {
 				FirefoxOptions firefoxopt = new FirefoxOptions();
 				firefoxopt.addArguments("--headless");
 				driver= new FirefoxDriver(firefoxopt);
-				}
-				else
-				{
-					driver= new FirefoxDriver();
-				}
+			}
+			else
+			{
+				driver= new FirefoxDriver();
+			}
 		}
 		driver.navigate().to(data.link());
 	}
-     
+	//Performing test cases
 	@Test(priority = 1,enabled = true,groups = {"sanity"})
 	public void AddToCart() throws Exception {
 		if(execution.toLowerCase().contains("yes")) 
 		{	
-		logger.info("Starting Add to cart process");
-		product = new AddToCartPage(driver);
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		product.SearchProduct(data.SearchItem());
-		product.SearchButton();
-		product.ClickWatch();
+			logger.info("Starting Add to cart process");
+			product = new AddToCartPage(driver);
+			driver.manage().window().maximize();
+			//Using implicit wait
+			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			product.SearchProduct(data.SearchItem());
+			product.SearchButton();
+			product.ClickWatch();
 		}
 		else
 		{
-			System.out.println("Currently this test case is not excuted because of excel value");
-			extenttest.fail("Test case is not working");
+			logger.info("Please change execution value in excel");
+			extenttest.fail("Test case is not working because of excel execution value");
 		}
 	}
 	@Test(priority = 2,enabled = true,groups = {"sanity"})
 	public void switchscreen() throws Exception {
 
-
+		//Passing code of window handle change
 		Set handles =  driver.getWindowHandles();
 
 		Iterator it = handles.iterator();
@@ -132,7 +139,7 @@ public class AddToCartTest {
 		product.Click_AddToCart();
 		Thread.sleep(2000);
 
-
+		//Checking webpage title
 		if(Currenttitle.contains(driver.getTitle()) && data.link().contains(Currenturl))
 		{
 			extenttest.pass("Add to cart test is completed");
@@ -145,12 +152,13 @@ public class AddToCartTest {
 			logger.error("Failed the process because of error");
 		}
 
-		//Assert.assertEquals(driver.getTitle(),Currenttitle);
+		//Using assertion
 		Assert.assertEquals(Currenturl, data.link());
 
 		extenttest.info("Test completed successfully");
 
 	}
+	//Closing browser
 	@AfterTest(groups = {"sanity"},enabled = true)
 	public void close() {
 		extent.flush();

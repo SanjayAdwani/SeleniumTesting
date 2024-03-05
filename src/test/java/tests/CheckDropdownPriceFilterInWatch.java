@@ -34,7 +34,7 @@ import Config.Read;
 import pages.DropdownPriceFilterPage;
 
 public class CheckDropdownPriceFilterInWatch {
-
+	//Declare variables
 	WebDriver driver=null;
 	Read data;
 	String dropdownvalue;
@@ -43,29 +43,34 @@ public class CheckDropdownPriceFilterInWatch {
 	ExtentReports DropdownExtent;
 	String projectpath;
 	String CurrentTitle = "Watch For Men- Buy Products Online at Best Price in India - All Categories | Flipkart.com";
+	//Passing class for logger
 	Logger logger= LogManager.getLogger(CheckDropdownPriceFilterInWatch.class);
 
 	@BeforeTest(groups = {"smoke","regression"},enabled = true)
 	public void setup() throws Exception {
-		XSSFWorkbook Workbook = new XSSFWorkbook("C:\\Users\\sanjayadwani\\eclipse-workspace\\SeleniumTesting\\Excel\\TestCasesExcel.xlsx");
+		//Giving dynamic path of project
+		projectpath= System.getProperty("user.dir");
+		//Reading excel file using sheetname
+		XSSFWorkbook Workbook = new XSSFWorkbook(projectpath+"/Excel/TestCasesExcel.xlsx");
 		XSSFSheet sheet = Workbook.getSheet("TestCases");
+		//Storing column value in variable
 		dropdownvalue=sheet.getRow(6).getCell(1).getStringCellValue();
 		data= new Read();
 		DropdownExtent = data.SetUp();
+		//Extent Report cases
 		DropdownTest = DropdownExtent.createTest("Dropdown option Test", "Checking the price dropdown filter for product option is working or not");
 		DropdownTest.log(Status.INFO, "Starting step of Dropdown Test");
-		//Get the path of the current project
-		projectpath= System.getProperty("user.dir");
 		logger.info("Choosing thr browser");
 		String headless = data.headlessvalue();
+		//Comparing browsers
 		if(data.browser().toLowerCase().contains("chrome"))
 		{
 			System.setProperty("webdriver.chrome.driver", projectpath+"/Drivers/chromedriver.exe");
-			//Open the website
+			//Checking headless mode
 			if(headless.toLowerCase().contains("true")) {
-			ChromeOptions opt= new ChromeOptions();
-			opt.addArguments("--headless");
-			driver= new ChromeDriver(opt);
+				ChromeOptions opt= new ChromeOptions();
+				opt.addArguments("--headless");
+				driver= new ChromeDriver(opt);
 			}
 			else {
 				driver= new ChromeDriver();
@@ -76,9 +81,9 @@ public class CheckDropdownPriceFilterInWatch {
 			//Passing the path of edge driver
 			System.setProperty("webdriver.edge.driver", projectpath+"/Drivers/msedgedriver.exe");
 			if(headless.toLowerCase().contains("true")) {
-			EdgeOptions edgeopt = new EdgeOptions();
-			edgeopt.addArguments("--headless");
-			driver= new EdgeDriver(edgeopt);
+				EdgeOptions edgeopt = new EdgeOptions();
+				edgeopt.addArguments("--headless");
+				driver= new EdgeDriver(edgeopt);
 			}
 			else
 			{
@@ -92,29 +97,30 @@ public class CheckDropdownPriceFilterInWatch {
 				FirefoxOptions firefoxopt = new FirefoxOptions();
 				firefoxopt.addArguments("--headless");
 				driver= new FirefoxDriver(firefoxopt);
-				}
-				else
-				{
-					driver= new FirefoxDriver();
-				}
+			}
+			else
+			{
+				driver= new FirefoxDriver();
+			}
 		}
 		driver.navigate().to(data.link());
 	}
-
+	//Performing test cases
 	@Test(groups = {"smoke","regression"},enabled = true,priority = 1) 
 	public void searchproduct() throws Exception {
 		if(dropdownvalue.toLowerCase().contains("yes")) {
-			
-		logger.info("Checking the price dropdown filter for watch");
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		FilterPrice = new DropdownPriceFilterPage(driver);
-		FilterPrice.SearchProduct(data.SearchItem());
-		FilterPrice.SearchButton();  
+
+			logger.info("Checking the price dropdown filter for watch");
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			FilterPrice = new DropdownPriceFilterPage(driver);
+			FilterPrice.SearchProduct(data.SearchItem());
+			FilterPrice.SearchButton();  
 		}
 		else
 		{
-			System.out.println("Please change the excel execution value");
+			logger.info("Please change execution value in excel");
+			DropdownTest.fail("Test case is not working because of excel execution value");
 		}
 	}
 	@Test(groups = {"smoke","regression"},enabled = true,priority = 2)
@@ -123,7 +129,7 @@ public class CheckDropdownPriceFilterInWatch {
 		Select obj = new Select(dropdown);
 		obj.selectByIndex(0);
 		Thread.sleep(2000); 
-
+		//Checking webpage title
 		if(CurrentTitle.contains(driver.getTitle()))
 		{
 			DropdownTest.pass("Dropdown price filter option test is completed");
@@ -135,13 +141,14 @@ public class CheckDropdownPriceFilterInWatch {
 			Files.copy(f, new File(projectpath+"/Screenshots/DropdownTest.jpg"));
 			logger.error("Failed the dropdown price process because of some error");
 		}
-
+		//Using asserion
 		Assert.assertEquals(driver.getTitle(),CurrentTitle);
 
 
 		DropdownTest.info("Test completed successfully");
 
 	}
+	//Closing browser
 	@AfterTest(groups = {"smoke","regression"},enabled = true)
 	public void close() {
 		DropdownExtent.flush();

@@ -32,6 +32,7 @@ import Config.Read;
 import pages.CheckBecomeSellerOptionPage;
 
 public class CheckBecomeSellerOption {
+	//Declare variables
 	WebDriver driver=null;
 	Read data;
 	String SellerValue;
@@ -39,28 +40,33 @@ public class CheckBecomeSellerOption {
 	String CurrentTitle = "Sell Online - Start Selling Online on Flipkart Seller Hub";
 	ExtentTest SellerTest;
 	ExtentReports SellerExtent;
+	//Passing class for logger
 	Logger logger= LogManager.getLogger(CheckBecomeSellerOption.class);
 	@BeforeTest(groups = {"smoke"},enabled = true)
 	public void setup() throws Exception {
-		XSSFWorkbook Workbook = new XSSFWorkbook("C:\\Users\\sanjayadwani\\eclipse-workspace\\SeleniumTesting\\Excel\\TestCasesExcel.xlsx");
+		//Giving dynamic path of project
+		projectpath= System.getProperty("user.dir");
+		//Reading excel file using sheetname
+		XSSFWorkbook Workbook = new XSSFWorkbook(projectpath+"/Excel/TestCasesExcel.xlsx");
 		XSSFSheet sheet = Workbook.getSheet("TestCases");
+		//Storing column value in variable
 		SellerValue=sheet.getRow(3).getCell(1).getStringCellValue();
 		data= new Read();
 		SellerExtent = data.SetUp();
+		//Extent Report cases
 		SellerTest = SellerExtent.createTest("Seller option Test", "Checking the Seller option is working or not");
 		SellerTest.log(Status.INFO, "Starting step of Seller Test");
-		//Get the path of the current project
-		projectpath= System.getProperty("user.dir");
 		logger.info("Choosing browser");
 		String headless = data.headlessvalue();
+		//Comparing browsers
 		if(data.browser().toLowerCase().contains("chrome"))
 		{
 			System.setProperty("webdriver.chrome.driver", projectpath+"/Drivers/chromedriver.exe");
-			//Open the website
+			//Checking headless mode
 			if(headless.toLowerCase().contains("true")) {
-			ChromeOptions opt= new ChromeOptions();
-			opt.addArguments("--headless");
-			driver= new ChromeDriver(opt);
+				ChromeOptions opt= new ChromeOptions();
+				opt.addArguments("--headless");
+				driver= new ChromeDriver(opt);
 			}
 			else {
 				driver= new ChromeDriver();
@@ -71,9 +77,9 @@ public class CheckBecomeSellerOption {
 			//Passing the path of edge driver
 			System.setProperty("webdriver.edge.driver", projectpath+"/Drivers/msedgedriver.exe");
 			if(headless.toLowerCase().contains("true")) {
-			EdgeOptions edgeopt = new EdgeOptions();
-			edgeopt.addArguments("--headless");
-			driver= new EdgeDriver(edgeopt);
+				EdgeOptions edgeopt = new EdgeOptions();
+				edgeopt.addArguments("--headless");
+				driver= new EdgeDriver(edgeopt);
 			}
 			else
 			{
@@ -87,49 +93,52 @@ public class CheckBecomeSellerOption {
 				FirefoxOptions firefoxopt = new FirefoxOptions();
 				firefoxopt.addArguments("--headless");
 				driver= new FirefoxDriver(firefoxopt);
-				}
-				else
-				{
-					driver= new FirefoxDriver();
-				}
+			}
+			else
+			{
+				driver= new FirefoxDriver();
+			}
 		}
 		driver.navigate().to(data.link());
 	}
+	//Performing test cases
 	@Test(groups = {"smoke"},enabled = true)
 	public void Checkbecomeselleroptions() throws Exception {
 		if(SellerValue.toLowerCase().contains("yes")) {
-		
-		logger.info("Starting the process of checking the seller option");
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		CheckBecomeSellerOptionPage seller= new CheckBecomeSellerOptionPage(driver);
-		seller.OpenSellerOption();
-		seller.OpenLoginSeller();
-		Thread.sleep(2000);
 
-		if(CurrentTitle.contains(driver.getTitle()))
-		{
-			SellerTest.pass("Seller option test is completed");
-			logger.info("Checking seller option button is completed");
-		}
-		else {
-			SellerTest.fail("Seller option test is not completed");
-			File f= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			Files.copy(f, new File(projectpath+"/Screenshots/SellerOptionTest.jpg"));
-			logger.error("Failed the seller option process because of some error");
-		}
+			logger.info("Starting the process of checking the seller option");
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			CheckBecomeSellerOptionPage seller= new CheckBecomeSellerOptionPage(driver);
+			seller.OpenSellerOption();
+			seller.OpenLoginSeller();
+			Thread.sleep(2000);
+			//Checking webpage title
+			if(CurrentTitle.contains(driver.getTitle()))
+			{
+				SellerTest.pass("Seller option test is completed");
+				logger.info("Checking seller option button is completed");
+			}
+			else {
+				SellerTest.fail("Seller option test is not completed");
+				File f= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+				Files.copy(f, new File(projectpath+"/Screenshots/SellerOptionTest.jpg"));
+				logger.error("Failed the seller option process because of some error");
+			}
+			//Using assertion
+			Assert.assertEquals(driver.getTitle(),CurrentTitle);
 
-		Assert.assertEquals(driver.getTitle(),CurrentTitle);
 
-
-		SellerTest.info("Test completed successfully");
+			SellerTest.info("Test completed successfully");
 		}
 		else
 		{
-			System.out.println("Please change excel execution value");
+			logger.info("Please change execution value in excel");
+			SellerTest.fail("Test case is not working because of excel execution value");
 		}
 
 	}
+	//Closing browser
 	@AfterTest(groups = {"smoke"},enabled = true)
 	public void close() {
 		SellerExtent.flush();

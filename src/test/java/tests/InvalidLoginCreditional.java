@@ -31,6 +31,7 @@ import pages.LoginPage;
 
 
 public class InvalidLoginCreditional {
+	//Declare variables
 	WebDriver driver=null;
 	Read data;
 	String LoginValue;
@@ -38,28 +39,33 @@ public class InvalidLoginCreditional {
 	ExtentReports InvalidLoginExtent;
 	String projectpath;
 	String CurrentTitle = "Online Shopping India | Buy Mobiles, Electronics, Appliances, Clothing and More Online at Flipkart.com";
+	//Passing class for logger
 	Logger logger= LogManager.getLogger(InvalidLoginCreditional.class);
 	@BeforeTest(groups = {"smoke","regression"},enabled = true)
 	public void setup() throws Exception {
-		XSSFWorkbook Workbook = new XSSFWorkbook("C:\\Users\\sanjayadwani\\eclipse-workspace\\SeleniumTesting\\Excel\\TestCasesExcel.xlsx");
+		//Giving dynamic path of project
+		projectpath= System.getProperty("user.dir");
+		//Reading excel file using sheetname
+		XSSFWorkbook Workbook = new XSSFWorkbook(projectpath+"/Excel/TestCasesExcel.xlsx");
 		XSSFSheet sheet = Workbook.getSheet("TestCases");
+		//Storing column value in variable
 		LoginValue=sheet.getRow(11).getCell(1).getStringCellValue();
 		data= new Read();
 		InvalidLoginExtent = data.SetUp();
+		//Extent Report cases
 		InvalidLoginTest = InvalidLoginExtent.createTest("Invalid  Creditionals Login  Test", "Checking the login using invalid creditionals");
 		InvalidLoginTest.log(Status.INFO, "Starting step of Invalid  Creditionals Login  Test");
-		//Get the path of the current project
-		projectpath= System.getProperty("user.dir");
 		logger.info("Choosing the browser");
 		String headless = data.headlessvalue();
+		//Comparing browsers
 		if(data.browser().toLowerCase().contains("chrome"))
 		{
 			System.setProperty("webdriver.chrome.driver", projectpath+"/Drivers/chromedriver.exe");
-			//Open the website
+			//Checking headless mode
 			if(headless.toLowerCase().contains("true")) {
-			ChromeOptions opt= new ChromeOptions();
-			opt.addArguments("--headless");
-			driver= new ChromeDriver(opt);
+				ChromeOptions opt= new ChromeOptions();
+				opt.addArguments("--headless");
+				driver= new ChromeDriver(opt);
 			}
 			else {
 				driver= new ChromeDriver();
@@ -70,9 +76,9 @@ public class InvalidLoginCreditional {
 			//Passing the path of edge driver
 			System.setProperty("webdriver.edge.driver", projectpath+"/Drivers/msedgedriver.exe");
 			if(headless.toLowerCase().contains("true")) {
-			EdgeOptions edgeopt = new EdgeOptions();
-			edgeopt.addArguments("--headless");
-			driver= new EdgeDriver(edgeopt);
+				EdgeOptions edgeopt = new EdgeOptions();
+				edgeopt.addArguments("--headless");
+				driver= new EdgeDriver(edgeopt);
 			}
 			else
 			{
@@ -86,50 +92,52 @@ public class InvalidLoginCreditional {
 				FirefoxOptions firefoxopt = new FirefoxOptions();
 				firefoxopt.addArguments("--headless");
 				driver= new FirefoxDriver(firefoxopt);
-				}
-				else
-				{
-					driver= new FirefoxDriver();
-				}
+			}
+			else
+			{
+				driver= new FirefoxDriver();
+			}
 		}
 		driver.navigate().to(data.link());
 	}
-
+	//Performing test cases
 	@Test(groups = {"smoke","regression"},enabled = true)
 	public void login() throws Exception {
 		if(LoginValue.toLowerCase().contains("yes")) {
-			
-		logger.info("Checking the login using invalid credtionals");
-		LoginPage login= new LoginPage(driver);
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		login.loginOpen();
-		login.AddUsername(data.InvalidID());
-		login.OtpButton();
-		Thread.sleep(2000);
 
-		if(CurrentTitle.contains(driver.getTitle()))
-		{
-			InvalidLoginTest.pass("Invalid Credtional login test is completed");
-			logger.info("Invalid credtional login process is completed");
-		}
-		else {
-			InvalidLoginTest.fail("Invalid Credtional login test is not completed");
-			File f= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			Files.copy(f, new File(projectpath+"/Screenshots/InvalidLoginTest.jpg"));
-			logger.error("Invalid login credtional process is not completed because of some error");
-		}
+			logger.info("Checking the login using invalid credtionals");
+			LoginPage login= new LoginPage(driver);
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			login.loginOpen();
+			login.AddUsername(data.InvalidID());
+			login.OtpButton();
+			Thread.sleep(2000);
+			//Checking webpage title
+			if(CurrentTitle.contains(driver.getTitle()))
+			{
+				InvalidLoginTest.pass("Invalid Credtional login test is completed");
+				logger.info("Invalid credtional login process is completed");
+			}
+			else {
+				InvalidLoginTest.fail("Invalid Credtional login test is not completed");
+				File f= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+				Files.copy(f, new File(projectpath+"/Screenshots/InvalidLoginTest.jpg"));
+				logger.error("Invalid login credtional process is not completed because of some error");
+			}
+			//Using Assertion
+			Assert.assertEquals(driver.getTitle(),CurrentTitle);
 
-		Assert.assertEquals(driver.getTitle(),CurrentTitle);
 
-
-		InvalidLoginTest.info("Test completed successfully");
+			InvalidLoginTest.info("Test completed successfully");
 		}
 		else
 		{
-			System.out.println("Please change execution value in excel");
+			logger.info("Please change execution value in excel");
+			InvalidLoginTest.fail("Test case is not working because of excel execution value");
 		}
 	}
+	//Closing browser
 	@AfterTest(groups = {"smoke","regression"},enabled = true)
 	public void close() {
 		InvalidLoginExtent.flush();

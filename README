@@ -1,0 +1,8 @@
+#All the test cases is avaliable in tests package in src/main/test folder
+#Each case contain both headless and non-headless mode test
+#If you want to change the test case mode you need to change the head value in config.properties currently it is false
+#In src/main/java all the test cases page is avaliable in pages package
+#In config package the file reader and extent report code is avalibale for re-use in all the test cases class
+#I have created all the testng class for each and every test class so if you want to run individual class from all test cases
+so you need to pass command in cmd along with file name
+#I have created separted folder for all these screenshots,excel file and test logs.

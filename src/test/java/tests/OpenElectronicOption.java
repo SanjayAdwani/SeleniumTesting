@@ -32,8 +32,7 @@ import Config.Read;
 import pages.OpenElectronicOptionpage;
 
 public class OpenElectronicOption {
-
-
+	//Declare variables
 	WebDriver driver=null;
 	Read data;
 	String ElecValue;
@@ -41,29 +40,34 @@ public class OpenElectronicOption {
 	ExtentReports ElecOptExtent;
 	String projectpath;
 	String CurrentTitle = "Electronics Best Offers Store Online - Buy Electronics Best Offers Online at Best Price in India | Flipkart.com";
+	//Passing class for logger
 	Logger logger= LogManager.getLogger(OpenElectronicOption.class);
 
 	@BeforeTest(groups = {"smoke","regression"},enabled = true)
 	public void setup() throws Exception {
-		XSSFWorkbook Workbook = new XSSFWorkbook("C:\\Users\\sanjayadwani\\eclipse-workspace\\SeleniumTesting\\Excel\\TestCasesExcel.xlsx");
+		//Giving dynamic path of project
+		projectpath= System.getProperty("user.dir");
+		//Reading excel file using sheetname
+		XSSFWorkbook Workbook = new XSSFWorkbook(projectpath+"/Excel/TestCasesExcel.xlsx");
 		XSSFSheet sheet = Workbook.getSheet("TestCases");
+		//Storing column value in variable
 		ElecValue=sheet.getRow(13).getCell(1).getStringCellValue();
 		data= new Read();
 		ElecOptExtent = data.SetUp();
+		//Extent Report cases
 		ElecOptTest = ElecOptExtent.createTest("Open Electronic Option  Test", "Checking the Electronic option from navigiation");
 		ElecOptTest.log(Status.INFO, "Starting step of Open Electronic Scenario");
-		//Get the path of the current project
-		projectpath= System.getProperty("user.dir");
 		logger.info("Choosing the browser");
 		String headless = data.headlessvalue();
+		//Comparing browsers
 		if(data.browser().toLowerCase().contains("chrome"))
 		{
 			System.setProperty("webdriver.chrome.driver", projectpath+"/Drivers/chromedriver.exe");
-			//Open the website
+			//Checking headless mode
 			if(headless.toLowerCase().contains("true")) {
-			ChromeOptions opt= new ChromeOptions();
-			opt.addArguments("--headless");
-			driver= new ChromeDriver(opt);
+				ChromeOptions opt= new ChromeOptions();
+				opt.addArguments("--headless");
+				driver= new ChromeDriver(opt);
 			}
 			else {
 				driver= new ChromeDriver();
@@ -74,9 +78,9 @@ public class OpenElectronicOption {
 			//Passing the path of edge driver
 			System.setProperty("webdriver.edge.driver", projectpath+"/Drivers/msedgedriver.exe");
 			if(headless.toLowerCase().contains("true")) {
-			EdgeOptions edgeopt = new EdgeOptions();
-			edgeopt.addArguments("--headless");
-			driver= new EdgeDriver(edgeopt);
+				EdgeOptions edgeopt = new EdgeOptions();
+				edgeopt.addArguments("--headless");
+				driver= new EdgeDriver(edgeopt);
 			}
 			else
 			{
@@ -90,49 +94,50 @@ public class OpenElectronicOption {
 				FirefoxOptions firefoxopt = new FirefoxOptions();
 				firefoxopt.addArguments("--headless");
 				driver= new FirefoxDriver(firefoxopt);
-				}
-				else
-				{
-					driver= new FirefoxDriver();
-				}
+			}
+			else
+			{
+				driver= new FirefoxDriver();
+			}
 		}
 		driver.navigate().to(data.link());
 	}
-
+	//Performing test cases
 	@Test(groups = {"smoke","regression"},enabled = true)
 	public void OpenElectronicOpt() throws Exception {
 		if(ElecValue.toLowerCase().contains("yes")) {
-			
-		logger.info("Checking the electronic option form nav");
-		OpenElectronicOptionpage ElecOption =  new OpenElectronicOptionpage(driver);
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		ElecOption.HoverElectric();
-		ElecOption.MobileAccessories();
 
-		if(CurrentTitle.contains(driver.getTitle()))
-		{
-			ElecOptTest.pass("Open Electronic option  Test is completed");
-			logger.info("Checking the electronic option form nav is completed");
-		}
-		else {
-			ElecOptTest.fail("Open Electronic option  Test is not completed");
-			File f= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			Files.copy(f, new File(projectpath+"/Screenshots/ElecOption.jpg"));
-			logger.error("Checking the electronic option is not completed");
-		}
+			logger.info("Checking the electronic option form nav");
+			OpenElectronicOptionpage ElecOption =  new OpenElectronicOptionpage(driver);
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			ElecOption.HoverElectric();
+			ElecOption.MobileAccessories();
+			//Checking webpage title
+			if(CurrentTitle.contains(driver.getTitle()))
+			{
+				ElecOptTest.pass("Open Electronic option  Test is completed");
+				logger.info("Checking the electronic option form nav is completed");
+			}
+			else {
+				ElecOptTest.fail("Open Electronic option  Test is not completed");
+				File f= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+				Files.copy(f, new File(projectpath+"/Screenshots/ElecOption.jpg"));
+				logger.error("Checking the electronic option is not completed");
+			}
+			//Using Assertion
+			Assert.assertEquals(driver.getTitle(),CurrentTitle);
 
-		Assert.assertEquals(driver.getTitle(),CurrentTitle);
 
-
-		ElecOptTest.info("Test completed successfully");
+			ElecOptTest.info("Test completed successfully");
 		}
 		else
 		{
-			System.out.println("Please change execution value in excel");
+			logger.info("Please change execution value in excel");
+			ElecOptTest.fail("Test case is not working because of excel execution value");
 		}
 	}
-
+	//Closing browser
 	@AfterTest(groups = {"smoke","regression"},enabled = true)
 	public void close() {
 		ElecOptExtent.flush();
