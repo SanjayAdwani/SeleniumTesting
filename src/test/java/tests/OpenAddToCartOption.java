@@ -109,6 +109,7 @@ public class OpenAddToCartOption {
 			logger.info("Checking the option of cart from navigiation");
 			OpenAddToCartPage cart =  new OpenAddToCartPage(driver);
 			driver.manage().window().maximize();
+			//Using implicit wait
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			cart.OpenCart();
 			//Checking webpage title

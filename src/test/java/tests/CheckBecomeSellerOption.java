@@ -108,6 +108,7 @@ public class CheckBecomeSellerOption {
 
 			logger.info("Starting the process of checking the seller option");
 			driver.manage().window().maximize();
+			//Using implicit wait
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			CheckBecomeSellerOptionPage seller= new CheckBecomeSellerOptionPage(driver);
 			seller.OpenSellerOption();

@@ -108,6 +108,7 @@ public class CheckMoreOptionNavigiation {
 			logger.info("Checking the more option and click the notification prefrences");
 			CheckMoreOptionNavigiationPage more = new CheckMoreOptionNavigiationPage(driver);
 			driver.manage().window().maximize();
+			//Using implicit wait
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			more.MoreOption();
 			more.NotiFicationPrefence();

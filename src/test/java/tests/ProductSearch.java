@@ -108,6 +108,7 @@ public class ProductSearch {
 			logger.error("Checking the product search");
 			ProductSearchpage product = new ProductSearchpage(driver);
 			driver.manage().window().maximize();
+			//Using implicit wait
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			product.SearchProduct(data.SearchItem());
 			product.SearchButton();

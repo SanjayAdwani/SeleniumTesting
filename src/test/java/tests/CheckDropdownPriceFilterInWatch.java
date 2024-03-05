@@ -112,6 +112,7 @@ public class CheckDropdownPriceFilterInWatch {
 
 			logger.info("Checking the price dropdown filter for watch");
 			driver.manage().window().maximize();
+			//Using implicit wait
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			FilterPrice = new DropdownPriceFilterPage(driver);
 			FilterPrice.SearchProduct(data.SearchItem());

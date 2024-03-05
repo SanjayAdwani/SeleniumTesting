@@ -108,6 +108,7 @@ public class InvalidLoginCreditional {
 			logger.info("Checking the login using invalid credtionals");
 			LoginPage login= new LoginPage(driver);
 			driver.manage().window().maximize();
+			//Using implicit Wait
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			login.loginOpen();
 			login.AddUsername(data.InvalidID());

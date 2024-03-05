@@ -107,6 +107,7 @@ public class CheckAppliciacnesOption {
 			logger.info("Starting the process of checking applicanes options");
 			CheckAppliancesOptionPage offer = new CheckAppliancesOptionPage(driver);
 			driver.manage().window().maximize();
+			//Using implicit wait
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			offer.ApplicationOption();
 			Thread.sleep(2000);	

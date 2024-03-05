@@ -109,6 +109,7 @@ public class CheckBuyNowOption {
 			logger.info("Starting the process of checking the option buy now");
 			CheckBuyNowOptionPage BuyNow =  new CheckBuyNowOptionPage(driver);
 			driver.manage().window().maximize();
+			//Using implicit wait
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			BuyNow.SearchProduct(data.SearchItem());
 			BuyNow.SearchButton();

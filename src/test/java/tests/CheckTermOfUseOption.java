@@ -111,6 +111,7 @@ public class CheckTermOfUseOption {
 			logger.info("Checking the term of use option");
 			CheckLoginOptionsPage Tp = new CheckLoginOptionsPage(driver);
 			driver.manage().window().maximize();
+			//Using implicit wait
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			Tp.OpenLogin();
 			Tp.OpenTermsOfUseOption();

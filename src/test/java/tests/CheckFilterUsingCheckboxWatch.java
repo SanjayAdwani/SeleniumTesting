@@ -109,6 +109,7 @@ public class CheckFilterUsingCheckboxWatch {
 
 			logger.info("Changing the brand of watches");
 			driver.manage().window().maximize();
+			//Using implicit wait
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			AddFilterUsingCheckboxWatchPage filter = new AddFilterUsingCheckboxWatchPage(driver);
 			filter.SearchProduct(data.SearchItem());

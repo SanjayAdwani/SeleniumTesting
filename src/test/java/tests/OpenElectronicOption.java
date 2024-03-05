@@ -110,6 +110,7 @@ public class OpenElectronicOption {
 			logger.info("Checking the electronic option form nav");
 			OpenElectronicOptionpage ElecOption =  new OpenElectronicOptionpage(driver);
 			driver.manage().window().maximize();
+			//Using implicit wait
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			ElecOption.HoverElectric();
 			ElecOption.MobileAccessories();

@@ -110,6 +110,7 @@ public class CheckDiscountOption {
 			logger.info("Checking the discount option filter for watch");
 			discount =  new CheckDiscountOptionPage(driver);
 			driver.manage().window().maximize();
+			//Using implicit wait
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			discount.SearchProduct(data.SearchItem());
 			discount.SearchButton();

@@ -108,6 +108,7 @@ public class CheckNavBackOptionAfterSearchProduct {
 
 			CheckNavBackOptionAfterSearchProductPage backOption= new CheckNavBackOptionAfterSearchProductPage(driver);
 			driver.manage().window().maximize();
+			//Using implicit wait
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			backOption.SearchProduct(data.SearchItem());
 			backOption.SearchButton();

@@ -108,6 +108,7 @@ public class ValidLoginCreditional {
 			logger.info("Staring the proces of login using valid credtional");
 			LoginPage login= new LoginPage(driver);
 			driver.manage().window().maximize();
+			//Using implicit wait
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			login.loginOpen();
 			login.AddUsername(data.Validid());
