@@ -72,7 +72,7 @@
         <version>3.2.5</version>
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>${testingfile}</suiteXmlFile>
+            <suiteXmlFile>testngaddtocart.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
       </plugin>
