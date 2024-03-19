@@ -9,8 +9,8 @@ public class CheckDiscountOptionPage {
 WebDriver driver=null;
 	
 	private By SeacrhPro = By.name("q");
-	private By Discount_Price = By.xpath("//*[@id=\"container\"]/div/div[3]/div/div[1]/div/div[1]/div/section[6]/div/div");
-	private By Tickbox90 = By.xpath("//*[@id=\"container\"]/div/div[3]/div[1]/div[1]/div/div[1]/div/section[6]/div[2]/div/div[1]/div/label/div[1]");
+	private By Discount_Price = By.xpath("//div[text()='Discount']");
+	private By Tickbox90 = By.xpath("//div[text()='90% or more']");
 	//private By tick = By.linkText("90% or more");
 	
 	public CheckDiscountOptionPage(WebDriver driver) {

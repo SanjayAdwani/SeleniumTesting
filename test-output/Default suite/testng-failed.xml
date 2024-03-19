@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="tests.OpenAddToCartOption">
+      <class name="tests.CheckDropdownPriceFilterInWatch">
         <methods>
+          <include name="FilterDropdown"/>
           <include name="setup"/>
           <include name="close"/>
-          <include name="OpenAddToCartOpt"/>
         </methods>
-      </class> <!-- tests.OpenAddToCartOption -->
+      </class> <!-- tests.CheckDropdownPriceFilterInWatch -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

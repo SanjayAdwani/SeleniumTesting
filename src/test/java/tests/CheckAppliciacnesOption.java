@@ -40,7 +40,7 @@ public class CheckAppliciacnesOption {
 	String CurrentTitle="Tvs And Appliances New Clp Store Online - Buy Tvs And Appliances New Clp Online at Best Price in India | Flipkart.com";
 	//Passing class for logger
 	Logger logger= LogManager.getLogger(CheckAppliciacnesOption.class);
-	@BeforeTest(groups = {"smoke"})
+	@BeforeTest(groups = {"sanity"})
 	public void setup() throws Exception {
 		//Giving dynamic path of project
 		projectpath= System.getProperty("user.dir");
@@ -52,7 +52,9 @@ public class CheckAppliciacnesOption {
 		data= new Read();
 		AppExtent = data.SetUp();
 		//Extent Report cases
+		//Test Name and description
 		AppTest = AppExtent.createTest("Appliciances option Test", "Checking the applicianes option is working or not");
+		//Test Status and Test detail
 		AppTest.log(Status.INFO, "Starting step of Appliciances Test");
 		logger.info("Choosing browser");
 		String headless = data.headlessvalue();
@@ -100,7 +102,7 @@ public class CheckAppliciacnesOption {
 		driver.navigate().to(data.link());
 	}
 	//Performing test cases
-	@Test(enabled = true,groups = {"smoke"})
+	@Test(enabled = true,groups = {"sanity"})
 	public void Application() throws Exception {
 		if(Applicianes.toLowerCase().contains("yes")) {
 
@@ -136,7 +138,7 @@ public class CheckAppliciacnesOption {
 		}
 	}
 	//Closing browser
-	@AfterTest(groups = {"smoke"})
+	@AfterTest(groups = {"sanity"})
 	public void close() {
 		AppExtent.flush();
 		driver.quit();

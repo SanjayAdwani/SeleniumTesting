@@ -47,63 +47,13 @@ public class AddToCartTest {
 	//Passing class for logger
 	Logger logger= LogManager.getLogger(AddToCartTest.class);
 	@BeforeTest(groups = {"sanity"})
-	public void setup() throws Exception {
-		//Giving dynamic path of project
-		projectpath= System.getProperty("user.dir");
-		//Reading excel file using sheetname
-		XSSFWorkbook Workbook = new XSSFWorkbook(projectpath+"/Excel/TestCasesExcel.xlsx");
-		XSSFSheet Sheet = Workbook.getSheet("TestCases");
-		//Storing column value in variable
-		execution= Sheet.getRow(1).getCell(1).getStringCellValue();
+    public void RunSetUp() throws Exception {
 		data= new Read();
 		extent = data.SetUp();
-		//Extent Report cases
-		extenttest = extent.createTest("Add To Cart Test", "Check the Add to cart functionality");
+		execution=data.Excelconfig(1, 1);
+      driver= data.RunBrowser(logger,execution);
+      extenttest = extent.createTest("Add To Cart Test", "Check the Add to cart functionality");
 		extenttest.log(Status.INFO, "Starting step of Add to cart test");
-		logger.info("Choosing browser");
-		String headless = data.headlessvalue();
-		//Comparing browsers
-		if(data.browser().toLowerCase().contains("chrome"))
-		{
-			System.setProperty("webdriver.chrome.driver", projectpath+"/Drivers/chromedriver.exe");
-			//Checking headless mode
-			if(headless.toLowerCase().contains("true")) {
-				ChromeOptions opt= new ChromeOptions();
-				opt.addArguments("--headless");
-				driver= new ChromeDriver(opt);
-			}
-			else {
-				driver= new ChromeDriver();
-			}
-		}
-		else if(data.browser().toLowerCase().contains("edge"))
-		{
-			//Passing the path of edge driver
-			System.setProperty("webdriver.edge.driver", projectpath+"/Drivers/msedgedriver.exe");
-			if(headless.toLowerCase().contains("true")) {
-				EdgeOptions edgeopt = new EdgeOptions();
-				edgeopt.addArguments("--headless");
-				driver= new EdgeDriver(edgeopt);
-			}
-			else
-			{
-				driver= new EdgeDriver();
-			}
-		}
-		else {
-			//Passing the path of firefox driver
-			System.setProperty("webdriver.gecko.driver", projectpath+"/Drivers/geckodriver.exe");
-			if(headless.toLowerCase().contains("true")) {
-				FirefoxOptions firefoxopt = new FirefoxOptions();
-				firefoxopt.addArguments("--headless");
-				driver= new FirefoxDriver(firefoxopt);
-			}
-			else
-			{
-				driver= new FirefoxDriver();
-			}
-		}
-		driver.navigate().to(data.link());
 	}
 	//Performing test cases
 	@Test(priority = 1,enabled = true,groups = {"sanity"})

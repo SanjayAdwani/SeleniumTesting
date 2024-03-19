@@ -11,6 +11,7 @@
       <class name="tests.AddToCartTest">
         <methods>
           <include name="AddToCart"/>
+          <include name="switchscreen"/>
         </methods>
       </class> <!-- tests.AddToCartTest -->
     </classes>

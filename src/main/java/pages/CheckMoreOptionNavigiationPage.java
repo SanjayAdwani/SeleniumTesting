@@ -9,7 +9,7 @@ public class CheckMoreOptionNavigiationPage {
 
 	WebDriver driver=null;
 	
-	private By More_Option = By.xpath("//*[@id=\"container\"]/div/div[1]/div/div/div/div/div[1]/div/div[1]/div/div[1]/div[1]/header/div[2]/div[5]/div/div/div/div/a/img");
+	private By More_Option = By.xpath("//img[@alt='Dropdown with more help links']");
 	private By Notification_Prefernce = By.linkText("Notification Preferences");
 	
 	public CheckMoreOptionNavigiationPage(WebDriver driver) {

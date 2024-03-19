@@ -8,10 +8,10 @@ public class AddToCartPage {
 
 	  WebDriver driver=null;
 	  
-	  private By SeacrhPro = By.name("q");
+	  private By SeacrhPro = By.xpath("//input[@title='Search for Products, Brands and More']");
 	  private By EnterSearch = By.xpath("//*[@id=\"container\"]/div/div[1]/div[1]/div[2]/div[2]/form/div/button/svg");
 	  private By click_watch = By.xpath("//*[@id=\"container\"]/div/div[3]/div[1]/div[2]/div[2]/div/div[1]/div/div/a[1]");
-	  private By clic_addtocart = By.xpath("//*[@id=\"container\"]/div/div[3]/div[1]/div[1]/div[2]/div/ul/li[1]/button");
+	  private By clic_addtocart = By.xpath("//button[@class='_2KpZ6l _2U9uOA _3v1-ww']");
 	  private By firefox_watch = By.xpath("/html/body/div/div/div[3]/div[1]/div[2]/div[2]/div/div[3]/div/div/a[1]");
 	  
 	  public AddToCartPage(WebDriver driver) {

@@ -9,6 +9,7 @@
 	  </groups>
     <classes>
       <class name="tests.AddToCartTest"/>
+      <class name="tests.CheckAppliciacnesOption"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

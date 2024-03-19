@@ -11,7 +11,7 @@ public class CheckBuyNowOptionPage {
 	 private By SeacrhPro = By.name("q");
 	 private By EnterSearch = By.xpath("//*[@id=\"container\"]/div/div[1]/div[1]/div[2]/div[2]/form/div/button/svg");
      private By Check_Watch = By.xpath("//*[@id=\"container\"]/div/div[3]/div[1]/div[2]/div[2]/div/div[1]/div/div/a[1]");
-     private By Check_BuyNow = By.xpath("//*[@id=\"container\"]/div/div[3]/div[1]/div[1]/div[2]/div/ul/li[2]/form/button");
+     private By Check_BuyNow = By.xpath("//button[text()='Buy Now']");
      
      public CheckBuyNowOptionPage(WebDriver driver) {
     	 this.driver=driver;

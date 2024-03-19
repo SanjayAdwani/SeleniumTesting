@@ -10,7 +10,7 @@ public class DropdownPriceFilterPage {
 	WebDriver driver=null;
 	
 	private By SeacrhPro = By.name("q");
-	private By Dropdown_Price = By.xpath("//*[@id=\"container\"]/div/div[3]/div[1]/div[1]/div/div[1]/div/section[2]/div[4]/div[3]/select");
+	private By Dropdown_Price = By.xpath("//option[@value=500 and @class='_3AsjWR']");
 	
 	public DropdownPriceFilterPage(WebDriver driver) {
 		this.driver=driver;

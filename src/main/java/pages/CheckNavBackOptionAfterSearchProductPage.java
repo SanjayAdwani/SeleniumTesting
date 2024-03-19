@@ -9,7 +9,7 @@ public class CheckNavBackOptionAfterSearchProductPage {
 	
 	private By SeacrhPro = By.name("q");
 	  private By EnterSearch = By.xpath("//*[@id=\"container\"]/div/div[1]/div[1]/div[2]/div[2]/form/div/button/svg");
-	  private By Back_Home = By.xpath("//*[@id=\"container\"]/div/div[3]/div[1]/div[2]/div[1]/div/div/div[1]/div[1]/a");
+	  private By Back_Home = By.xpath("//a[@class='_2whKao' and text()='Home']");
 	
 	  public CheckNavBackOptionAfterSearchProductPage(WebDriver driver) {
 		  this.driver=driver;
