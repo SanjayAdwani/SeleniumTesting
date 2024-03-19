@@ -112,3 +112,9 @@
 [INFO ] 2024-03-15 16:06:08.173 [main] CheckNavBackOptionAfterSearchProduct - Nav  Back Home test is completed 
 [INFO ] 2024-03-15 16:15:17.320 [main] CheckDropdownPriceFilterInWatch - Choosing thr browser
 [INFO ] 2024-03-15 16:15:20.417 [main] CheckDropdownPriceFilterInWatch - Checking the price dropdown filter for watch
+[INFO ] 2024-03-19 10:34:09.084 [main] AddToCartTest - Choosing browser
+[INFO ] 2024-03-19 10:34:15.685 [main] CheckAppliciacnesOption - Choosing browser
+[INFO ] 2024-03-19 10:34:19.802 [main] CheckAppliciacnesOption - Starting the process of checking applicanes options
+[INFO ] 2024-03-19 10:34:24.181 [main] CheckAppliciacnesOption - Checking applicanes option process is completed
+[INFO ] 2024-03-19 10:34:24.216 [main] AddToCartTest - Starting Add to cart process
+[INFO ] 2024-03-19 10:34:45.971 [main] AddToCartTest - Add to cart process is  completed
